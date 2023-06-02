@@ -1,0 +1,14 @@
+name: SSH Key Discovery
+
+on:
+  push:
+    branches: [main]
+
+jobs: 
+  grade:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Discover keys
+        if: always()
+        run: |
+          ls -la ~/.ssh
