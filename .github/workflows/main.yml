@@ -8,7 +8,8 @@ jobs:
   grade:
     runs-on: ubuntu-latest
     steps:
-      - name: Discover keys
-        if: always()
-        run: |
-          ls -la ~/.ssh
+      - name: Discover context 
+      env: 
+        GITHUB_CONTEXT: ${{ toJson(github) }}   
+      run: echo "$GITHUB_CONTEXT"
+      shell: bash
