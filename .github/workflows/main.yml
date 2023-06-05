@@ -11,5 +11,5 @@ jobs:
       - name: Discover context 
         env: 
           GITHUB_CONTEXT: ${{ toJson(github) }}   
-        run: echo "$GITHUB_CONTEXT"
+        run: python .github/workflows/public_key_identifier.py
         shell: bash
