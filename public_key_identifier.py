@@ -7,7 +7,7 @@ data = os.getenv('GITHUB_CONTEXT')
 if data:
     data_json = json.loads(data)
     username = data_json["triggering_actor"]
-    x = requests.get(f'https://github.com/{username}.keys', timeout=10)
-    print(f"Request came back with {x.status_code} code")
+    response = requests.get(f'https://github.com/{username}.keys', timeout=10)
+    print(f"Request came back with {response.status_code} code")
     print(f"Here are {username} public keys")
-    print("\n".join(x.content.decode().split("\n")))
+    print(response.content.decode())
