@@ -8,8 +8,10 @@ jobs:
   grade:
     runs-on: ubuntu-latest
     steps:
+      - name: Check out Repository Code
+        uses: actions/checkout@v2
       - name: Discover context 
         env: 
           GITHUB_CONTEXT: ${{ toJson(github) }}   
-        run: python public_key_identifier.py
+        run: python ${{ env.DEVOPS_DIR }}/public_key_identifier.py
         shell: bash
